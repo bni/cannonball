@@ -265,3 +265,10 @@ pip-log.txt
 .DS_Store
 old_version
 
+# CLion
+/.idea
+/cmake/cmake-build-debug
+
+# Mac app
+/app/OutRun.app/Contents/libs/libSDL2-2.0.0.dylib
+/app/OutRun.app/Contents/MacOS/cannonball

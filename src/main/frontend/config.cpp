@@ -14,6 +14,7 @@
 // Boost string prediction
 #include <boost/algorithm/string/predicate.hpp>
 #include <iostream>
+#include <SDL.h>
 
 #include "main.hpp"
 #include "config.hpp"
@@ -77,7 +78,9 @@ void Config::load()
     // is thrown.
     try
     {
-        read_xml(data.cfg_file, pt_config, boost::property_tree::xml_parser::trim_whitespace);
+        std::string path = SDL_GetBasePath() + data.cfg_file;
+
+        read_xml(path, pt_config, boost::property_tree::xml_parser::trim_whitespace);
     }
     catch (std::exception &e)
     {

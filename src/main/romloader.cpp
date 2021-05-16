@@ -13,6 +13,7 @@
 #include <cstddef>       // for std::size_t
 #include <boost/crc.hpp> // CRC Checking via Boost library.
 #include <unordered_map>
+#include <SDL.h>
 
 #include "stdint.hpp"
 #include "romloader.hpp"
@@ -120,7 +121,7 @@ int RomLoader::create_map()
 {
     map_created = true;
 
-    std::string path = config.data.rom_path;
+    std::string path = SDL_GetBasePath() + config.data.rom_path;
     DIR* dir;
     struct dirent* ent;
 
