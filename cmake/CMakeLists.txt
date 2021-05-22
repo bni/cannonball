@@ -8,6 +8,8 @@
 cmake_minimum_required (VERSION 3.3.2) # Might compile lower, but untested
 project (cannonball)
 
+set (CMAKE_CXX_STANDARD 11)
+
 # -----------------------------------------------------------------------------
 # Directory Setup
 # -----------------------------------------------------------------------------
@@ -113,7 +115,12 @@ elseif(OPENGLES)
 	set(src_render
 	    "${main_cpp_base}/sdl2/rendergles.hpp"
 	    "${main_cpp_base}/sdl2/rendergles.cpp"
-	)   
+	)
+elseif(SDL_GPU)
+	set(src_render
+		"${main_cpp_base}/sdl2/rendergpu.hpp"
+		"${main_cpp_base}/sdl2/rendergpu.cpp"
+	)
 else()
 	set(src_render
 	    "${main_cpp_base}/sdl2/rendersurface.hpp"
@@ -240,12 +247,17 @@ if(OPENGLES)
     add_definitions(-DWITH_OPENGLES)
 endif()
 
+if(SDL_GPU)
+	add_definitions(-DWITH_SDL_GPU)
+endif()
+
 # -----------------------------------------------------------------------------
 # Library Setup
 # -----------------------------------------------------------------------------
 
 set(BOOST_INCLUDEDIR ${boost_dir})
 find_package(Boost REQUIRED)
+message("BOOST Include : ${Boost_INCLUDE_DIRS}")
 
 set(SDL2_DIR ${sdl2_dir})
 find_package(SDL2 REQUIRED)
@@ -255,7 +267,7 @@ message("SDL2 Libraries: ${SDL2_LIBRARIES}")
 # Include
 include_directories(
     ${main_cpp_base}
-    ${BOOST_INCLUDEDIR}
+	${Boost_INCLUDE_DIRS}
     ${SDL2_INCLUDE_DIRS}
 )
 

@@ -20,6 +20,8 @@
 #include "sdl2/rendergl.hpp"
 #elif WITH_OPENGLES
 #include "sdl2/rendergles.hpp"
+#elif WITH_SDL_GPU
+#include "sdl2/rendergpu.hpp"
 #else
 #include "sdl2/rendersurface.hpp"
 #endif
