@@ -6,6 +6,7 @@ rm ./OutRun.app/Contents/libs/libSDL2-2.0.0.dylib
 
 # Then copy executable ...
 cp ../cmake/cmake-build-debug/cannonball OutRun.app/Contents/MacOS/
+cp -r ../cmake/cmake-build-debug/res OutRun.app/Contents/Resources/
 
 # ... and bundle SDL2 dylib
 ../../macdylibbundler/dylibbundler -of -b -x ./OutRun.app/Contents/MacOS/cannonball -d ./OutRun.app/Contents/libs/

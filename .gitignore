@@ -272,3 +272,5 @@ old_version
 # Mac app
 /app/OutRun.app/Contents/libs/libSDL2-2.0.0.dylib
 /app/OutRun.app/Contents/MacOS/cannonball
+/app/OutRun.app/Contents/Resources/res/*.txt
+/app/OutRun.app/Contents/Resources/res/*.bin

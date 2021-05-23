@@ -152,9 +152,6 @@ bool Render::finalize_frame()
     GPU_SetImageFilter(texture, GPU_FILTER_NEAREST);
     GPU_SetImageVirtualResolution(texture, (Uint16)scn_width, (Uint16)scn_height);
 
-    // Temp
-    //GPU_Blit(texture, NULL, renderer, 0, 0);
-
     // *** SHADER DRAW ***
     GPU_ActivateShaderProgram(shader, &block);
 
@@ -191,6 +188,7 @@ bool Render::finalize_frame()
     // *******************
 
     // Mask out the edges with black bars in fullscreen 16:9 mode
+    // TODO better way to do this
     if (video_mode == video_settings_t::MODE_FULL) {
         float blackBarWidth = 258;
         float rightStartPos = (float)scn_width - blackBarWidth;

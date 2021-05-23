@@ -7,9 +7,9 @@
     <!-- OutRun Revision B ROM directory -->
     <rompath>roms/</rompath>
     <!-- Path to load required binary files from -->
-    <respath>./res/</respath>
+    <respath>res/</respath>
     <!-- Path to write XML for scores -->
-    <savepath>./</savepath>
+    <savepath></savepath>
     <!-- Use CRC 32 Based ROM Loading (i.e. rely on scanning file contents, not on filenames) -->
     <crc32>1</crc32>
 </data>
