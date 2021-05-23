@@ -12,6 +12,12 @@ Please note that I  maintain the Windows build of CannonBall. Whilst I strive to
 Thank you! 
 Chris White (Project Creator). 
 
+About this fork
+==========================
+This fork focuses on:
+* macOS build and app bundle. Makes canonball easy to use on a Mac.
+* CRT emulation shader implemented with SDL_gpu renderer:
+![Screenshot](https://raw.github.com/bni/cannonball/master/screenshot.png)
 
 Getting Started
 ---------------
