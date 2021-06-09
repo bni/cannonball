@@ -188,9 +188,8 @@ bool Render::finalize_frame()
     // *******************
 
     // Mask out the edges with black bars in fullscreen 16:9 mode
-    // TODO better way to do this
     if (video_mode == video_settings_t::MODE_FULL) {
-        float blackBarWidth = 258;
+        float blackBarWidth = (float)(scn_width * 0.1);
         float rightStartPos = (float)scn_width - blackBarWidth;
 
         SDL_Color color = {0, 0, 0, 255};
