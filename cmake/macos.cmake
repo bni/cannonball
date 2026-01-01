@@ -1,22 +1,29 @@
 # -----------------------------------------------------------------------------
-# CannonBall macOS Setup
+# CannonBall macOS Setup (with SDL_gpu https://github.com/grimfang4/sdl-gpu)
+# -DTARGET=macos.cmake -DSDL_GPU=true
 # -----------------------------------------------------------------------------
-
-find_path(
-    SDL_GPU_INCLUDE_DIR
-    NAMES SDL_gpu.h
-    PATHS /usr/local/include /Users/bni/Documents/sdl-gpu/include
-)
-
-include_directories(
-    ${SDL_GPU_INCLUDE_DIR}
-)
 
 find_package(OpenGL REQUIRED)
 
-set(SDL2_GPU_LIBRARY_PATH "/Users/bni/Documents/sdl-gpu/lib/libSDL2_gpu.a")
+find_path(
+        SDL_GPU_INCLUDE_DIR
+        NAMES SDL_gpu.h
+        PATHS /usr/local/include ${PROJECT_SOURCE_DIR}/SDL_gpu/include/SDL2
+)
+
+find_library(
+        SDL_GPU_LIBRARY
+        libSDL2_gpu.a
+        PATHS ${PROJECT_SOURCE_DIR}/SDL_gpu/lib
+)
+
+include_directories(
+        ${SDL_GPU_INCLUDE_DIR}
+)
+
+set (CMAKE_EXE_LINKER_FLAGS -mmacosx-version-min=15.6)
 
 set(platform_link_libs
-    ${OPENGL_LIBRARIES}
-    ${SDL2_GPU_LIBRARY_PATH}
+        ${OPENGL_LIBRARIES}
+        ${SDL_GPU_LIBRARY}
 )

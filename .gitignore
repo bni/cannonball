@@ -269,6 +269,9 @@ old_version
 /.idea
 /cmake/cmake-build-debug
 
+# SDL_gpu
+/cmake/SDL_gpu
+
 # Mac app
 /app/OutRun.app/Contents/libs/libSDL2-2.0.0.dylib
 /app/OutRun.app/Contents/MacOS/cannonball

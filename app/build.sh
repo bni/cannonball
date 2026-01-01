@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # clean
-rm ./OutRun.app/Contents/MacOS/cannonball
-rm ./OutRun.app/Contents/libs/libSDL2-2.0.0.dylib
+rm -f ./OutRun.app/Contents/MacOS/cannonball
+rm -f ./OutRun.app/Contents/libs/libSDL2-2.0.0.dylib
 
 # Then copy executable ...
 cp ../cmake/cmake-build-debug/cannonball OutRun.app/Contents/MacOS/
